@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CV Craft Pro - Resume Builder</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="logo.png">
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="brand">
+
+  <img
+    src="logo.png"
+    alt="CV Craft Pro Logo"
+    class="brand-logo"
+  >
+
+  <div class="brand-info">
+    <h1>CV Craft <span>PRO</span></h1>
+    <p>Professional Resume Builder</p>
+  </div>
+
+</div>
+
+    <div class="top-actions">
+      <button class="ghost-btn" id="loadBtn">Load Saved</button>
+      <button class="ghost-btn danger" id="resetBtn">Reset</button>
+      <button class="primary-btn" id="downloadBtn">Download PDF</button>
+    </div>
+  </header>
+
+  <main class="app-shell">
+    <aside class="form-panel no-print">
+      <div class="panel-title">
+        <span>Build Resume</span>
+        <small>Auto-saves while typing</small>
+      </div>
+
+      <section class="form-section">
+        <h2>Template</h2>
+        <div class="template-grid" id="templateButtons">
+          <button class="template-btn active" data-template="simple">Simple</button>
+          <button class="template-btn" data-template="modern">Modern</button>
+          <button class="template-btn" data-template="sidebar">Sidebar</button>
+          <button class="template-btn" data-template="minimal">Minimal</button>
+          <button class="template-btn" data-template="executive">Executive</button>
+          <button class="template-btn" data-template="developer">Developer</button>
+          <button class="template-btn" data-template="creative">Creative</button>
+          <button class="template-btn" data-template="elegant">Elegant</button>
+          <button class="template-btn" data-template="compact">Compact</button>
+          <button class="template-btn" data-template="academic">Academic</button>
+          <button class="template-btn" data-template="corporate">Corporate</button>
+          <button class="template-btn" data-template="modern-dark">Modern Dark</button>
+          <button class="template-btn" data-template="photo">Photo Resume</button>
+          <button class="template-btn" data-template="clean-blue">Clean Blue</button>
+          <button class="template-btn" data-template="two-column">Two Column</button>
+          <button class="template-btn" data-template="startup">Startup</button>
+          <button class="template-btn" data-template="designer">Designer</button>
+          <button class="template-btn" data-template="ats-friendly">ATS Friendly</button>
+        </div>
+      </section>
+
+      <section class="form-section">
+        <h2>Personal Info</h2>
+        <label>Profile Photo</label>
+        <input class="field" type="file" id="photoInput" accept="image/*" />
+        <label>Full Name</label><input class="field save-input" id="fullName" placeholder="Kreel Dhakal" />
+        <label>Job Title</label><input class="field save-input" id="jobTitle" placeholder="Frontend Developer" />
+        <label>Professional Headline</label><input class="field save-input" id="headline" placeholder="Building clean websites and practical digital tools" />
+        <label>Email</label><input class="field save-input" id="email" placeholder="name@email.com" />
+        <label>Phone</label><input class="field save-input" id="phone" placeholder="+977 98XXXXXXXX" />
+        <label>Address</label><input class="field save-input" id="address" placeholder="Kathmandu, Nepal" />
+        <label>Website</label><input class="field save-input" id="website" placeholder="https://yourwebsite.com" />
+        <label>Portfolio</label><input class="field save-input" id="portfolio" placeholder="https://portfolio.com" />
+        <label>LinkedIn</label><input class="field save-input" id="linkedin" placeholder="https://linkedin.com/in/username" />
+        <label>GitHub</label><input class="field save-input" id="github" placeholder="https://github.com/username" />
+        <div class="label-row"><label>Professional Summary</label><button class="suggest-btn" data-suggest="summary">Suggest</button></div>
+        <textarea class="field textarea save-input" id="summary" placeholder="Write a short professional summary..."></textarea>
+      </section>
+
+      <section class="form-section">
+        <div class="section-head"><h2>Education</h2><button class="mini-btn" data-add="education">+ Add</button></div>
+        <div id="educationList"></div>
+      </section>
+
+      <section class="form-section">
+        <div class="section-head"><h2>Experience</h2><button class="mini-btn" data-add="experience">+ Add</button></div>
+        <div id="experienceList"></div>
+      </section>
+
+      <section class="form-section">
+        <div class="section-head"><h2>Projects</h2><button class="mini-btn" data-add="project">+ Add</button></div>
+        <div id="projectList"></div>
+      </section>
+
+      <section class="form-section">
+        <h2>Skills</h2>
+        <div class="label-row"><label>Technical Skills</label><button class="suggest-btn" data-suggest="technicalSkills">Suggest</button></div>
+        <input class="field save-input" id="technicalSkills" placeholder="HTML, CSS, JavaScript" />
+        <label>Soft Skills</label><input class="field save-input" id="softSkills" placeholder="Communication, Teamwork" />
+        <label>Languages</label><input class="field save-input" id="languages" placeholder="Nepali, English, Hindi" />
+      </section>
+
+      <section class="form-section">
+        <h2>Extra Sections</h2>
+        <label>Certifications</label><textarea class="field textarea save-input" id="certifications" placeholder="Responsive Web Design - freeCodeCamp"></textarea>
+        <label>Awards</label><textarea class="field textarea save-input" id="awards" placeholder="Best Project Award - 2025"></textarea>
+        <label>Volunteer Experience</label><textarea class="field textarea save-input" id="volunteer" placeholder="Community event organizer..."></textarea>
+        <label>References</label><textarea class="field textarea save-input" id="references" placeholder="Available upon request"></textarea>
+        <label>Interests</label><input class="field save-input" id="interests" placeholder="Coding, Gaming, UI Design" />
+      </section>
+    </aside>
+
+    <section class="preview-area">
+      <div class="preview-toolbar no-print">
+        <div>
+          <strong>Live Preview</strong>
+          <span id="saveStatus">Saved</span>
+        </div>
+        <div class="zoom-tools">
+          <button class="ghost-btn" id="zoomOut">−</button>
+          <span id="zoomText">100%</span>
+          <button class="ghost-btn" id="zoomIn">+</button>
+        </div>
+      </div>
+      <div class="paper-wrap" id="paperWrap">
+        <article id="resumePreview" class="resume-paper template-simple"></article>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
